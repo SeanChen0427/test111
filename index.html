@@ -13,17 +13,15 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #FDFBF7; /* 溫暖的背景色 */
+            background-color: #FDFBF7;
             color: #333333;
             scroll-behavior: smooth;
         }
-        /* 自定義滾動條 */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #d4a373; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #bc8a5f; }
 
-        /* 防止文字被強制不換行衝出框外 */
         .break-words {
             word-wrap: break-word;
             word-break: normal;
@@ -52,11 +50,10 @@
     <!-- 首圖 Banner 區塊 -->
     <section class="pt-16 bg-[#5c4033] relative">
         <div class="w-full max-w-7xl mx-auto relative">
-            <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/xfbn.png" 
-                 alt="【毛孩友善香氛課｜擴香石×純粹之境精油】" 
+            <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/xfbn.png"
+                 alt="【毛孩友善香氛課｜擴香石×純粹之境精油】"
                  class="w-full h-auto">
-            
-            <!-- 按鈕區塊：手機版在圖片下方，電腦版浮動在圖片底部 -->
+
             <div class="w-full bg-[#5c4033] sm:bg-transparent sm:absolute sm:bottom-0 sm:left-0 sm:w-full sm:bg-gradient-to-t sm:from-[#3e2315] sm:to-transparent py-6 flex justify-center gap-4 px-4">
                 <a href="#register" class="bg-[#d4a373] hover:bg-[#bc8a5f] text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform transform hover:scale-105 text-center flex-1 sm:flex-none max-w-[200px]">
                     立即報名
@@ -84,7 +81,7 @@
                 這堂課結合「純粹之境水精油」與擴香石手作，帶你安心打造人寵共享的舒適空間✨<br>
                 讓香氣不只療癒你，也細心守護毛孩🐾 一起把安心與純淨，帶回家🏡
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                 <div class="flex items-start gap-4">
                     <div class="bg-[#fdf3e7] p-3 rounded-full text-[#d4a373]">
@@ -134,20 +131,17 @@
                 <div class="w-16 h-1 bg-[#d4a373] mx-auto rounded"></div>
             </div>
 
-            <!-- 兩張課程介紹圖 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/x1.png" 
-                     alt="課程內容介紹 1" 
+                <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/x1.png"
+                     alt="課程內容介紹 1"
                      class="w-full h-auto rounded-3xl shadow-sm border border-gray-100">
-                <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/x2.png" 
-                     alt="課程內容介紹 2" 
+                <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/x2.png"
+                     alt="課程內容介紹 2"
                      class="w-full h-auto rounded-3xl shadow-sm border border-gray-100">
             </div>
 
-            <!-- 下方文字介紹區塊 -->
             <div class="bg-[#FDFBF7] rounded-3xl shadow-sm border border-gray-100 p-8 md:p-10">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <!-- 課程內容 -->
                     <div>
                         <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
                             🪨 課程內容
@@ -160,7 +154,6 @@
                         </ul>
                     </div>
 
-                    <!-- 課程亮點 -->
                     <div>
                         <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
                             ✨ 課程亮點
@@ -173,7 +166,6 @@
                         </ul>
                     </div>
 
-                    <!-- 精油特色解說 -->
                     <div>
                         <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
                             🌿 精油特色解說
@@ -184,7 +176,6 @@
                         </ul>
                     </div>
 
-                    <!-- 適合對象 -->
                     <div>
                         <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
                             💛 適合對象
@@ -226,7 +217,7 @@
         <!-- 表單本體 -->
         <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
             <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" class="space-y-6">
-                
+
                 <!-- 家長資訊 -->
                 <div class="border-b pb-6">
                     <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-user me-2 text-[#d4a373]"></i>家長資訊</h3>
@@ -249,13 +240,12 @@
                 <!-- 課程選項與人數 -->
                 <div class="border-b pb-6">
                     <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-paw me-2 text-[#d4a373]"></i>課程選項與人數</h3>
-                    
-                    <!-- 新增：擴香石選項參考圖 -->
+
                     <div class="mb-6">
                         <label class="block text-sm font-bold text-gray-700 mb-2">【擴香石款式參考】</label>
                         <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
-                            <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/xz.jpg" 
-                                 alt="擴香石款式參考圖" 
+                            <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/xz.jpg"
+                                 alt="擴香石款式參考圖"
                                  class="w-full h-auto">
                         </div>
                     </div>
@@ -292,7 +282,7 @@
                     </div>
                 </div>
 
-                <!-- 報名確認須知 (Checkbox) -->
+                <!-- 報名確認須知 -->
                 <div>
                     <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-clipboard-check me-2 text-[#d4a373]"></i>報名前請再確認</h3>
                     <div class="space-y-3">
@@ -342,7 +332,7 @@
             <p class="text-lg text-gray-600 mb-8 break-words text-justify">
                 感謝您的報名！您的資料我們已經收到。接下來請完成最後一個步驟：
             </p>
-            
+
             <div class="bg-[#fdf3e7] p-6 rounded-xl text-left mb-8">
                 <h3 class="font-bold text-[#5c4033] mb-3 text-lg"><i class="fa-solid fa-wallet me-2"></i>匯款與確認步驟：</h3>
                 <ol class="list-decimal list-inside text-gray-700 space-y-2 leading-relaxed">
@@ -379,43 +369,47 @@
     <!-- 表單互動與背景傳送邏輯 -->
     <script>
         document.getElementById('registration-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // 阻止表單實際跳轉頁面
+            e.preventDefault();
 
             const form = this;
             const submitBtn = document.getElementById('submit-btn');
             const originalBtnText = submitBtn.innerHTML;
 
-            // 變更按鈕狀態為傳送中，避免家長重複點擊
             submitBtn.innerHTML = '<span>傳送中...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
             submitBtn.disabled = true;
 
-            // 自動打包表單內的所有欄位資料，並轉換為 Google 表單專用的 URLSearchParams 格式
             const formData = new FormData(form);
             const searchParams = new URLSearchParams();
             for (const pair of formData.entries()) {
                 searchParams.append(pair[0], pair[1]);
             }
 
-            // 使用 Fetch API 背景傳送，加上 Content-Type 確保 Google 能夠正確解析資料格式
+            // Google Forms 必要的 metadata 欄位
+            searchParams.append('fvv', '1');
+            searchParams.append('pageHistory', '0');
+            searchParams.append('fbzx', Math.floor(Math.random() * 9e18).toString());
+
+            // 選擇題/下拉/checkbox 必要的 sentinel 欄位
+            searchParams.append('entry.1179969121_sentinel', '');
+            searchParams.append('entry.714140561_sentinel', '');
+            searchParams.append('entry.2037258706_sentinel', '');
+            searchParams.append('entry.1668108466_sentinel', '');
+
             fetch(form.action, {
                 method: 'POST',
-                mode: 'no-cors', 
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: searchParams
             }).then(() => {
-                // 傳送完畢後：隱藏表單，顯示成功訊息
                 document.getElementById('form-container').style.display = 'none';
                 document.getElementById('success-message').classList.remove('hidden');
-
-                // 平滑滾動到成功訊息區塊
                 document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }).catch(error => {
                 console.error('Submission Error:', error);
                 alert('抱歉，送出表單時發生網路連線問題，請稍後再試！');
             }).finally(() => {
-                // 無論成功失敗，恢復按鈕狀態
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             });
