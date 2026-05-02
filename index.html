@@ -214,9 +214,19 @@
             </div>
         </div>
 
+        <!-- 隱藏 iframe：接收 Google Forms 回應，避免頁面跳轉 -->
+        <iframe name="hidden-google-iframe" id="hidden-google-iframe" style="display:none;"></iframe>
+
         <!-- 表單本體 -->
         <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
-            <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" class="space-y-6">
+            <form id="registration-form" target="hidden-google-iframe" action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" class="space-y-6">
+                <!-- Google Forms 必要隱藏欄位 -->
+                <input type="hidden" name="fvv" value="1">
+                <input type="hidden" name="pageHistory" value="0">
+                <input type="hidden" name="entry.1179969121_sentinel" value="">
+                <input type="hidden" name="entry.714140561_sentinel" value="">
+                <input type="hidden" name="entry.2037258706_sentinel" value="">
+                <input type="hidden" name="entry.1668108466_sentinel" value="">
 
                 <!-- 家長資訊 -->
                 <div class="border-b pb-6">
@@ -366,53 +376,28 @@
         </a>
     </div>
 
-    <!-- 表單互動與背景傳送邏輯 -->
+    <!-- 表單互動邏輯：使用隱藏 iframe 直接 POST，繞過 CORS 限制 -->
     <script>
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        const submitBtn = document.getElementById('submit-btn');
+        const iframe = document.getElementById('hidden-google-iframe');
+        let formSubmitted = false;
 
-            const form = this;
-            const submitBtn = document.getElementById('submit-btn');
+        document.getElementById('registration-form').addEventListener('submit', function() {
             const originalBtnText = submitBtn.innerHTML;
-
             submitBtn.innerHTML = '<span>傳送中...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
             submitBtn.disabled = true;
+            formSubmitted = true;
 
-            const formData = new FormData(form);
-            const searchParams = new URLSearchParams();
-            for (const pair of formData.entries()) {
-                searchParams.append(pair[0], pair[1]);
-            }
-
-            // Google Forms 必要的 metadata 欄位
-            searchParams.append('fvv', '1');
-            searchParams.append('pageHistory', '0');
-            searchParams.append('fbzx', Math.floor(Math.random() * 9e18).toString());
-
-            // 選擇題/下拉/checkbox 必要的 sentinel 欄位
-            searchParams.append('entry.1179969121_sentinel', '');
-            searchParams.append('entry.714140561_sentinel', '');
-            searchParams.append('entry.2037258706_sentinel', '');
-            searchParams.append('entry.1668108466_sentinel', '');
-
-            fetch(form.action, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: searchParams
-            }).then(() => {
+            // 等 Google 回應載入 iframe 後顯示成功畫面
+            iframe.onload = function() {
+                if (!formSubmitted) return;
+                formSubmitted = false;
                 document.getElementById('form-container').style.display = 'none';
                 document.getElementById('success-message').classList.remove('hidden');
                 document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }).catch(error => {
-                console.error('Submission Error:', error);
-                alert('抱歉，送出表單時發生網路連線問題，請稍後再試！');
-            }).finally(() => {
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
-            });
+            };
         });
     </script>
 </body>
