@@ -223,7 +223,7 @@
             </div>
         </div>
 
-        <!-- 表單本體：移除舊版容易被擋的 iframe，改為直接定義 id 用 js 處理 -->
+        <!-- 表單本體 -->
         <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
             <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" class="space-y-6">
                 
@@ -376,7 +376,7 @@
         </a>
     </div>
 
-    <!-- 表單互動與背景傳送邏輯 (全新升級版) -->
+    <!-- 表單互動與背景傳送邏輯 -->
     <script>
         document.getElementById('registration-form').addEventListener('submit', function(e) {
             e.preventDefault(); // 阻止表單實際跳轉頁面
@@ -389,14 +389,21 @@
             submitBtn.innerHTML = '<span>傳送中...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
             submitBtn.disabled = true;
 
-            // 自動打包表單內的所有欄位資料
+            // 自動打包表單內的所有欄位資料，並轉換為 Google 表單專用的 URLSearchParams 格式
             const formData = new FormData(form);
+            const searchParams = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                searchParams.append(pair[0], pair[1]);
+            }
 
-            // 使用 Fetch API 背景傳送，加上 no-cors 完美避開瀏覽器阻擋
+            // 使用 Fetch API 背景傳送，加上 Content-Type 確保 Google 能夠正確解析資料格式
             fetch(form.action, {
                 method: 'POST',
                 mode: 'no-cors', 
-                body: formData
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: searchParams
             }).then(() => {
                 // 傳送完畢後：隱藏表單，顯示成功訊息
                 document.getElementById('form-container').style.display = 'none';
