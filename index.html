@@ -224,94 +224,17 @@
             </div>
         </div>
 
-        <!-- 表單本體 -->
-        <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
-            <form id="registration-form" class="space-y-6">
-                <!-- 家長資訊 -->
-                <div class="border-b pb-6">
-                    <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-user me-2 text-[#d4a373]"></i>家長資訊</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">家長姓名 *</label>
-                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="王小明">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">聯絡電話 *</label>
-                            <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="0912-345-678">
-                        </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">LINE ID *</label>
-                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="方便後續聯繫與傳送通知">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 毛孩資訊 -->
-                <div class="border-b pb-6">
-                    <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-paw me-2 text-[#d4a373]"></i>毛孩資訊</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">您家中飼養的毛孩 *</label>
-                            <select required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
-                                <option value="" disabled selected>請選擇</option>
-                                <option value="狗狗">狗狗</option>
-                                <option value="貓咪">貓咪</option>
-                                <option value="狗狗與貓咪都有">狗狗與貓咪都有</option>
-                                <option value="其他寵物">其他寵物</option>
-                                <option value="目前無飼養">目前無飼養</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">毛孩名字與品種 (選填)</label>
-                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="例如：小白 (馬爾濟斯)">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 其他資訊 -->
-                <div>
-                    <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-clipboard-question me-2 text-[#d4a373]"></i>其他資訊</h3>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">想對我們說的話或提問 (選填)</label>
-                        <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="有什麼想問導師的問題，或是對課程的期待嗎？"></textarea>
-                    </div>
-                </div>
-
-                <div class="pt-4">
-                    <button type="submit" class="w-full bg-[#5c4033] hover:bg-[#4a332a] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors text-lg flex justify-center items-center gap-2">
-                        <span>提交報名資料</span>
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                    <p class="text-center text-sm text-gray-500 mt-4">點擊提交即表示您同意本課程的報名與退費規範。</p>
-                </div>
-            </form>
-        </div>
-
-        <!-- 報名成功畫面 (預設隱藏) -->
-        <div id="success-message" class="hidden bg-white p-8 md:p-12 rounded-2xl shadow-lg border-t-8 border-[#d4a373] text-center">
-            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fa-solid fa-check text-4xl text-green-500"></i>
-            </div>
-            <h2 class="text-3xl font-black text-[#5c4033] mb-4">表單已成功送出！</h2>
-            <p class="text-lg text-gray-600 mb-8 break-words text-justify">
-                感謝您的報名！您的資料我們已經收到。接下來請完成最後一個步驟：
-            </p>
-            
-            <div class="bg-[#fdf3e7] p-6 rounded-xl text-left mb-8">
-                <h3 class="font-bold text-[#5c4033] mb-3 text-lg"><i class="fa-solid fa-wallet me-2"></i>匯款與確認步驟：</h3>
-                <ol class="list-decimal list-inside text-gray-700 space-y-2 leading-relaxed">
-                    <li>請於 <strong class="text-red-500">2 天內</strong> 完成課程費用匯款。</li>
-                    <li>匯款銀行：<strong>第一銀行 (007)</strong></li>
-                    <li>匯款帳號：<strong class="text-xl text-red-600 font-mono tracking-wider ml-1">73057053673</strong></li>
-                    <li>匯款完成後，請務必加入官方 LINE 傳訊告知您的<strong>「報名家長姓名」</strong>與<strong>「匯款帳號後五碼」</strong>。</li>
-                    <li>等我們確認有收到款項後，會發送「報名成功」訊息，才算完成報名手續喔！</li>
-                </ol>
-            </div>
-
-            <a href="https://lin.ee/oXMUqBf" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#00B900] hover:bg-[#009900] text-white font-bold py-3 px-8 rounded-full shadow-md transition-colors w-full sm:w-auto">
-                <i class="fa-brands fa-line text-xl"></i>
-                立即前往官方 LINE 聯繫
-            </a>
+        <!-- 表單本體：直接嵌入 Google 表單 -->
+        <div class="w-full bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden flex justify-center">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/viewform?embedded=true" 
+                    width="100%" 
+                    height="1800" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    class="max-w-full">
+                載入中…
+            </iframe>
         </div>
     </section>
 
@@ -330,18 +253,5 @@
         </a>
     </div>
 
-    <!-- 表單互動邏輯 -->
-    <script>
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // 阻止表單實際跳轉
-            
-            // 隱藏表單，顯示成功訊息
-            document.getElementById('form-container').style.display = 'none';
-            document.getElementById('success-message').classList.remove('hidden');
-            
-            // 滾動到成功訊息區塊
-            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    </script>
 </body>
 </html>
