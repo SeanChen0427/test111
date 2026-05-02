@@ -224,17 +224,142 @@
             </div>
         </div>
 
-        <!-- 表單本體：直接嵌入 Google 表單 -->
-        <div class="w-full bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden flex justify-center">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/viewform?embedded=true" 
-                    width="100%" 
-                    height="1800" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    class="max-w-full">
-                載入中…
-            </iframe>
+        <!-- 隱藏的 iframe，用來接收 Google 表單提交後的跳轉，避免網頁重載跑版 -->
+        <script>var submitted = false;</script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { document.getElementById('form-container').style.display='none'; document.getElementById('success-message').classList.remove('hidden'); document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' }); }"></iframe>
+
+        <!-- 表單本體：完全對應您的 Google 表單設定 -->
+        <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
+            <!-- 已換上您表單真實的 formResponse URL -->
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
+                
+                <!-- 家長資訊 -->
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-user me-2 text-[#d4a373]"></i>家長資訊</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">報名人(代表人報名參加即可)(一組可2人作業) *</label>
+                            <!-- 對應 entry.2138907829 -->
+                            <input type="text" name="entry.2138907829" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="王小明">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">報名人電話 *</label>
+                            <!-- 對應 entry.1618024410 -->
+                            <input type="tel" name="entry.1618024410" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="0912-345-678">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">LINE ID *</label>
+                            <!-- 對應 entry.731297285 -->
+                            <input type="text" name="entry.731297285" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="方便後續聯繫與傳送通知">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 課程選項與人數 -->
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-paw me-2 text-[#d4a373]"></i>課程選項與人數</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">選定一組擴香石 (當天上課教學用) *</label>
+                            <!-- 對應 entry.1179969121 -->
+                            <select name="entry.1179969121" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
+                                <option value="" disabled selected>請選擇</option>
+                                <option value="1.六角幾何擴香盤">1.六角幾何擴香盤</option>
+                                <option value="2.雲紋圓盤擴香盤">2.雲紋圓盤擴香盤</option>
+                                <option value="3.草莓奶蓋擴香盤">3.草莓奶蓋擴香盤</option>
+                                <option value="4.貝殼海語擴香盤">4.貝殼海語擴香盤</option>
+                                <option value="5.貓掌肉墊擴香石">5.貓掌肉墊擴香石</option>
+                                <option value="6.搖搖木馬擴香石">6.搖搖木馬擴香石</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">參加人數 *</label>
+                            <!-- 對應 entry.714140561 -->
+                            <select name="entry.714140561" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
+                                <option value="" disabled selected>請選擇</option>
+                                <option value="1人">1人</option>
+                                <option value="2人">2人</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">是否攜帶毛孩 *</label>
+                            <!-- 對應 entry.2037258706 -->
+                            <select name="entry.2037258706" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
+                                <option value="" disabled selected>請選擇</option>
+                                <option value="有">有</option>
+                                <option value="無">無</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 報名確認須知 (Checkbox) -->
+                <div>
+                    <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-clipboard-check me-2 text-[#d4a373]"></i>報名前請再確認</h3>
+                    <div class="space-y-3">
+                        <!-- 對應 entry.1668108466 -->
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <div class="flex items-center h-5">
+                                <input type="checkbox" name="entry.1668108466" value="確定會出席再報名，店家會優先保留位置，請勿浪費資源!" required class="w-4 h-4 text-[#d4a373] border-gray-300 rounded focus:ring-[#d4a373] cursor-pointer">
+                            </div>
+                            <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
+                                確定會出席再報名，店家會優先保留位置，請勿浪費資源！
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <div class="flex items-center h-5">
+                                <input type="checkbox" name="entry.1668108466" value="為了保護毛孩的安全，請務必穿戴胸背或牽繩項圈!" required class="w-4 h-4 text-[#d4a373] border-gray-300 rounded focus:ring-[#d4a373] cursor-pointer">
+                            </div>
+                            <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
+                                為了保護毛孩的安全，請務必穿戴胸背或牽繩項圈！
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <div class="flex items-center h-5">
+                                <input type="checkbox" name="entry.1668108466" value="良好的上課空間需要大家一起維護，建議幫毛孩穿禮貌帶!" required class="w-4 h-4 text-[#d4a373] border-gray-300 rounded focus:ring-[#d4a373] cursor-pointer">
+                            </div>
+                            <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
+                                良好的上課空間需要大家一起維護，建議幫毛孩穿禮貌帶！
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" class="w-full bg-[#5c4033] hover:bg-[#4a332a] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors text-lg flex justify-center items-center gap-2">
+                        <span>提交報名資料</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <p class="text-center text-sm text-gray-500 mt-4">點擊提交即表示您同意本課程的報名規範。</p>
+                </div>
+            </form>
+        </div>
+
+        <!-- 報名成功畫面 (預設隱藏) -->
+        <div id="success-message" class="hidden bg-white p-8 md:p-12 rounded-2xl shadow-lg border-t-8 border-[#d4a373] text-center">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-check text-4xl text-green-500"></i>
+            </div>
+            <h2 class="text-3xl font-black text-[#5c4033] mb-4">表單已成功送出！</h2>
+            <p class="text-lg text-gray-600 mb-8 break-words text-justify">
+                感謝您的報名！您的資料我們已經收到。接下來請完成最後一個步驟：
+            </p>
+            
+            <div class="bg-[#fdf3e7] p-6 rounded-xl text-left mb-8">
+                <h3 class="font-bold text-[#5c4033] mb-3 text-lg"><i class="fa-solid fa-wallet me-2"></i>匯款與確認步驟：</h3>
+                <ol class="list-decimal list-inside text-gray-700 space-y-2 leading-relaxed">
+                    <li>請於 <strong class="text-red-500">2 天內</strong> 完成課程費用匯款。</li>
+                    <li>匯款銀行：<strong>第一銀行 (007)</strong></li>
+                    <li>匯款帳號：<strong class="text-xl text-red-600 font-mono tracking-wider ml-1">73057053673</strong></li>
+                    <li>匯款完成後，請務必加入官方 LINE 傳訊告知您的<strong>「報名家長姓名」</strong>與<strong>「匯款帳號後五碼」</strong>。</li>
+                    <li>等我們確認有收到款項後，會發送「報名成功」訊息，才算完成報名手續喔！</li>
+                </ol>
+            </div>
+
+            <a href="https://lin.ee/oXMUqBf" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#00B900] hover:bg-[#009900] text-white font-bold py-3 px-8 rounded-full shadow-md transition-colors w-full sm:w-auto">
+                <i class="fa-brands fa-line text-xl"></i>
+                立即前往官方 LINE 聯繫
+            </a>
         </div>
     </section>
 
