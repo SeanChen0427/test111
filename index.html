@@ -367,7 +367,7 @@
     </div>
 
     <script>
-        const ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse';
+        const ACTION = 'https://script.google.com/macros/s/AKfycby3t-TgDMems0w3IwuCIU-CAOar7GyFk1Csd-8TmLAavuLT3IglKtv0JSNjtoblU-gJ/exec';
 
         document.getElementById('registration-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -400,7 +400,7 @@
             }
 
             try {
-                await fetch(ACTION, { method: 'POST', mode: 'no-cors', credentials: 'include', body: fd });
+                await fetch(ACTION, { method: 'POST', mode: 'no-cors', body: fd });
                 showSuccess();
             } catch(err) {
                 showSuccess();
