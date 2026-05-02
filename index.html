@@ -52,7 +52,6 @@
     <!-- 首圖 Banner 區塊 -->
     <section class="pt-16 bg-[#5c4033] relative">
         <div class="w-full max-w-7xl mx-auto relative">
-            <!-- 替換為您的 Banner，並設定 w-full h-auto 確保絕對不裁切 -->
             <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/xfbn.png" 
                  alt="【毛孩友善香氛課｜擴香石×純粹之境精油】" 
                  class="w-full h-auto">
@@ -72,7 +71,11 @@
     <!-- 課程介紹 -->
     <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div class="text-center mb-10">
-            <h2 class="text-2xl md:text-3xl font-black text-[#5c4033] mb-4">【毛孩友善香氛課｜擴香石×純粹之境精油】</h2>
+            <!-- 修正：將標題拆分成兩行，避免手機版詭異斷句，並提升層次感 -->
+            <h2 class="font-black text-[#5c4033] mb-4 leading-normal">
+                <span class="block text-2xl md:text-3xl mb-1">【毛孩友善香氛課】</span>
+                <span class="block text-xl md:text-2xl text-[#d4a373]">擴香石 × 純粹之境精油</span>
+            </h2>
             <div class="w-16 h-1 bg-[#d4a373] mx-auto rounded"></div>
         </div>
 
@@ -142,59 +145,57 @@
                      class="w-full h-auto rounded-3xl shadow-sm border border-gray-100">
             </div>
 
-            <!-- 下方文字介紹區塊 (保留以利家長快速瀏覽與 SEO) -->
+            <!-- 下方文字介紹區塊 -->
             <div class="bg-[#FDFBF7] rounded-3xl shadow-sm border border-gray-100 p-8 md:p-10">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <!-- 課程內容 -->
-                        <div>
-                            <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
-                                🪨 課程內容
-                            </h3>
-                            <ul class="space-y-2 text-gray-700 text-sm md:text-base">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 擴香石DIY製作（多款造型自由選）</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 認識「純粹之境水精油」特性與正確用法</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 學習適合毛孩環境的香氛搭配技巧</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 精油香氛小遊戲 找到專屬氣味</li>
-                            </ul>
-                        </div>
-
-                        <!-- 課程亮點 -->
-                        <div>
-                            <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
-                                ✨ 課程亮點
-                            </h3>
-                            <ul class="space-y-2 text-gray-700 text-sm md:text-base">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 專為毛孩家庭設計的香氛課程</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 兼顧安全與生活質感</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 新手也能輕鬆完成專屬擴香石</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 打造溫柔、放鬆的居家氛圍</li>
-                            </ul>
-                        </div>
-
-                        <!-- 精油特色解說 -->
-                        <div>
-                            <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
-                                🌿 精油特色解說
-                            </h3>
-                            <ul class="space-y-2 text-gray-700 text-sm md:text-base">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-leaf text-green-500 mt-1"></i> 不口服、不塗抹，降低毛孩接觸風險</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-leaf text-green-500 mt-1"></i> 孕婦、小朋友與寵物皆可安心使用</li>
-                            </ul>
-                        </div>
-
-                        <!-- 適合對象 -->
-                        <div>
-                            <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
-                                💛 適合對象
-                            </h3>
-                            <ul class="space-y-2 text-gray-700 text-sm md:text-base">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-red-400 mt-1"></i> 有養狗狗／貓咪的你</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-red-400 mt-1"></i> 重視天然、安全香氛</li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-red-400 mt-1"></i> 想體驗療癒手作與放鬆時光</li>
-                            </ul>
-                        </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
+                            🪨 課程內容
+                        </h3>
+                        <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 擴香石DIY製作（多款造型自由選）</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 認識「純粹之境水精油」特性與正確用法</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 學習適合毛孩環境的香氛搭配技巧</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-[#d4a373] mt-1"></i> 精油香氛小遊戲 找到專屬氣味</li>
+                        </ul>
                     </div>
 
+                    <!-- 課程亮點 -->
+                    <div>
+                        <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
+                            ✨ 課程亮點
+                        </h3>
+                        <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 專為毛孩家庭設計的香氛課程</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 兼顧安全與生活質感</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 新手也能輕鬆完成專屬擴香石</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-star text-[#d4a373] mt-1"></i> 打造溫柔、放鬆的居家氛圍</li>
+                        </ul>
+                    </div>
+
+                    <!-- 精油特色解說 -->
+                    <div>
+                        <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
+                            🌿 精油特色解說
+                        </h3>
+                        <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-leaf text-green-500 mt-1"></i> 不口服、不塗抹，降低毛孩接觸風險</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-leaf text-green-500 mt-1"></i> 孕婦、小朋友與寵物皆可安心使用</li>
+                        </ul>
+                    </div>
+
+                    <!-- 適合對象 -->
+                    <div>
+                        <h3 class="text-xl font-bold text-[#5c4033] mb-3 flex items-center gap-2">
+                            💛 適合對象
+                        </h3>
+                        <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-red-400 mt-1"></i> 有養狗狗／貓咪的你</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-red-400 mt-1"></i> 重視天然、安全香氛</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-red-400 mt-1"></i> 想體驗療癒手作與放鬆時光</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -307,7 +308,7 @@
                 </ol>
             </div>
 
-            <a href="https://line.me/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#00B900] hover:bg-[#009900] text-white font-bold py-3 px-8 rounded-full shadow-md transition-colors w-full sm:w-auto">
+            <a href="https://lin.ee/oXMUqBf" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#00B900] hover:bg-[#009900] text-white font-bold py-3 px-8 rounded-full shadow-md transition-colors w-full sm:w-auto">
                 <i class="fa-brands fa-line text-xl"></i>
                 立即前往官方 LINE 聯繫
             </a>
@@ -321,7 +322,7 @@
 
     <!-- 右下角懸浮按鈕 -->
     <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        <a href="https://line.me/" target="_blank" class="w-14 h-14 bg-[#00B900] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+        <a href="https://lin.ee/oXMUqBf" target="_blank" class="w-14 h-14 bg-[#00B900] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
             <i class="fa-brands fa-line text-3xl"></i>
         </a>
         <a href="https://instagram.com/" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
