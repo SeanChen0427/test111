@@ -223,13 +223,9 @@
             </div>
         </div>
 
-        <!-- 隱藏的 iframe -->
-        <script>var submitted = false;</script>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { document.getElementById('form-container').style.display='none'; document.getElementById('success-message').classList.remove('hidden'); document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' }); }"></iframe>
-
-        <!-- 表單本體 -->
+        <!-- 表單本體：移除舊版容易被擋的 iframe，改為直接定義 id 用 js 處理 -->
         <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
+            <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" class="space-y-6">
                 
                 <!-- 家長資訊 -->
                 <div class="border-b pb-6">
@@ -328,7 +324,7 @@
                 </div>
 
                 <div class="pt-6">
-                    <button type="submit" class="w-full bg-[#5c4033] hover:bg-[#4a332a] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors text-lg flex justify-center items-center gap-2">
+                    <button type="submit" id="submit-btn" class="w-full bg-[#5c4033] hover:bg-[#4a332a] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors text-lg flex justify-center items-center gap-2">
                         <span>提交報名資料</span>
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
@@ -380,5 +376,43 @@
         </a>
     </div>
 
+    <!-- 表單互動與背景傳送邏輯 (全新升級版) -->
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // 阻止表單實際跳轉頁面
+
+            const form = this;
+            const submitBtn = document.getElementById('submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // 變更按鈕狀態為傳送中，避免家長重複點擊
+            submitBtn.innerHTML = '<span>傳送中...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+
+            // 自動打包表單內的所有欄位資料
+            const formData = new FormData(form);
+
+            // 使用 Fetch API 背景傳送，加上 no-cors 完美避開瀏覽器阻擋
+            fetch(form.action, {
+                method: 'POST',
+                mode: 'no-cors', 
+                body: formData
+            }).then(() => {
+                // 傳送完畢後：隱藏表單，顯示成功訊息
+                document.getElementById('form-container').style.display = 'none';
+                document.getElementById('success-message').classList.remove('hidden');
+
+                // 平滑滾動到成功訊息區塊
+                document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }).catch(error => {
+                console.error('Submission Error:', error);
+                alert('抱歉，送出表單時發生網路連線問題，請稍後再試！');
+            }).finally(() => {
+                // 無論成功失敗，恢復按鈕狀態
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
