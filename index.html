@@ -71,7 +71,6 @@
     <!-- 課程介紹 -->
     <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div class="text-center mb-10">
-            <!-- 修正：將標題拆分成兩行，避免手機版詭異斷句，並提升層次感 -->
             <h2 class="font-black text-[#5c4033] mb-4 leading-normal">
                 <span class="block text-2xl md:text-3xl mb-1">【毛孩友善香氛課】</span>
                 <span class="block text-xl md:text-2xl text-[#d4a373]">擴香石 × 純粹之境精油</span>
@@ -135,7 +134,7 @@
                 <div class="w-16 h-1 bg-[#d4a373] mx-auto rounded"></div>
             </div>
 
-            <!-- 兩張課程介紹圖 (手機版自動上下排，電腦版左右並排) -->
+            <!-- 兩張課程介紹圖 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/x1.png" 
                      alt="課程內容介紹 1" 
@@ -224,13 +223,12 @@
             </div>
         </div>
 
-        <!-- 隱藏的 iframe，用來接收 Google 表單提交後的跳轉，避免網頁重載跑版 -->
+        <!-- 隱藏的 iframe -->
         <script>var submitted = false;</script>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { document.getElementById('form-container').style.display='none'; document.getElementById('success-message').classList.remove('hidden'); document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' }); }"></iframe>
 
-        <!-- 表單本體：完全對應您的 Google 表單設定 -->
+        <!-- 表單本體 -->
         <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
-            <!-- 已換上您表單真實的 formResponse URL -->
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
                 
                 <!-- 家長資訊 -->
@@ -239,17 +237,14 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">報名人(代表人報名參加即可)(一組可2人作業) *</label>
-                            <!-- 對應 entry.2138907829 -->
                             <input type="text" name="entry.2138907829" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="王小明">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">報名人電話 *</label>
-                            <!-- 對應 entry.1618024410 -->
                             <input type="tel" name="entry.1618024410" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="0912-345-678">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">LINE ID *</label>
-                            <!-- 對應 entry.731297285 -->
                             <input type="text" name="entry.731297285" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition" placeholder="方便後續聯繫與傳送通知">
                         </div>
                     </div>
@@ -258,32 +253,40 @@
                 <!-- 課程選項與人數 -->
                 <div class="border-b pb-6">
                     <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-paw me-2 text-[#d4a373]"></i>課程選項與人數</h3>
+                    
+                    <!-- 新增：擴香石選項參考圖 -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">【擴香石款式參考】</label>
+                        <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                            <img src="https://raw.githubusercontent.com/SeanChen0427/assets/main/xz.jpg" 
+                                 alt="擴香石款式參考圖" 
+                                 class="w-full h-auto">
+                        </div>
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
+                        <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">選定一組擴香石 (當天上課教學用) *</label>
-                            <!-- 對應 entry.1179969121 -->
                             <select name="entry.1179969121" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
-                                <option value="" disabled selected>請選擇</option>
-                                <option value="1.六角幾何擴香盤">1.六角幾何擴香盤</option>
-                                <option value="2.雲紋圓盤擴香盤">2.雲紋圓盤擴香盤</option>
-                                <option value="3.草莓奶蓋擴香盤">3.草莓奶蓋擴香盤</option>
-                                <option value="4.貝殼海語擴香盤">4.貝殼海語擴香盤</option>
-                                <option value="5.貓掌肉墊擴香石">5.貓掌肉墊擴香石</option>
-                                <option value="6.搖搖木馬擴香石">6.搖搖木馬擴香石</option>
+                                <option value="" disabled selected>請選擇款式</option>
+                                <option value="1.六角幾何擴香盤">1. 六角幾何擴香盤</option>
+                                <option value="2.雲紋圓盤擴香盤">2. 雲紋圓盤擴香盤</option>
+                                <option value="3.草莓奶蓋擴香盤">3. 草莓奶蓋擴香盤</option>
+                                <option value="4.貝殼海語擴香盤">4. 貝殼海語擴香盤</option>
+                                <option value="5.貓掌肉墊擴香石">5. 貓掌肉墊擴香石</option>
+                                <option value="6.搖搖木馬擴香石">6. 搖搖木馬擴香石</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">參加人數 *</label>
-                            <!-- 對應 entry.714140561 -->
                             <select name="entry.714140561" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
                                 <option value="" disabled selected>請選擇</option>
                                 <option value="1人">1人</option>
                                 <option value="2人">2人</option>
                             </select>
                         </div>
-                        <div class="md:col-span-2">
+                        <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">是否攜帶毛孩 *</label>
-                            <!-- 對應 entry.2037258706 -->
                             <select name="entry.2037258706" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d4a373] focus:border-transparent outline-none transition bg-white">
                                 <option value="" disabled selected>請選擇</option>
                                 <option value="有">有</option>
@@ -297,7 +300,6 @@
                 <div>
                     <h3 class="text-xl font-bold text-[#5c4033] mb-4"><i class="fa-solid fa-clipboard-check me-2 text-[#d4a373]"></i>報名前請再確認</h3>
                     <div class="space-y-3">
-                        <!-- 對應 entry.1668108466 -->
                         <label class="flex items-start gap-3 cursor-pointer group">
                             <div class="flex items-center h-5">
                                 <input type="checkbox" name="entry.1668108466" value="確定會出席再報名，店家會優先保留位置，請勿浪費資源!" required class="w-4 h-4 text-[#d4a373] border-gray-300 rounded focus:ring-[#d4a373] cursor-pointer">
@@ -335,7 +337,7 @@
             </form>
         </div>
 
-        <!-- 報名成功畫面 (預設隱藏) -->
+        <!-- 報名成功畫面 -->
         <div id="success-message" class="hidden bg-white p-8 md:p-12 rounded-2xl shadow-lg border-t-8 border-[#d4a373] text-center">
             <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i class="fa-solid fa-check text-4xl text-green-500"></i>
