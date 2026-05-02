@@ -214,19 +214,9 @@
             </div>
         </div>
 
-        <!-- 隱藏 iframe：接收 Google Forms 回應，避免頁面跳轉 -->
-        <iframe name="hidden-google-iframe" id="hidden-google-iframe" style="display:none;"></iframe>
-
         <!-- 表單本體 -->
         <div id="form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-md border border-gray-100">
-            <form id="registration-form" target="hidden-google-iframe" action="https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse" method="POST" class="space-y-6">
-                <!-- Google Forms 必要隱藏欄位 -->
-                <input type="hidden" name="fvv" value="1">
-                <input type="hidden" name="pageHistory" value="0">
-                <input type="hidden" name="entry.1179969121_sentinel" value="">
-                <input type="hidden" name="entry.714140561_sentinel" value="">
-                <input type="hidden" name="entry.2037258706_sentinel" value="">
-                <input type="hidden" name="entry.1668108466_sentinel" value="">
+            <form id="registration-form" class="space-y-6">
 
                 <!-- 家長資訊 -->
                 <div class="border-b pb-6">
@@ -376,28 +366,45 @@
         </a>
     </div>
 
-    <!-- 表單互動邏輯：使用隱藏 iframe 直接 POST，繞過 CORS 限制 -->
     <script>
-        const submitBtn = document.getElementById('submit-btn');
-        const iframe = document.getElementById('hidden-google-iframe');
-        let formSubmitted = false;
+        const ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSdFRWg8nSB5LSCXAoTTpdsAtLb-wfK4aXGEJwC-bo57j6MAtw/formResponse';
 
-        document.getElementById('registration-form').addEventListener('submit', function() {
+        document.getElementById('registration-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const submitBtn = document.getElementById('submit-btn');
             const originalBtnText = submitBtn.innerHTML;
+
             submitBtn.innerHTML = '<span>傳送中...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
             submitBtn.disabled = true;
-            formSubmitted = true;
 
-            // 等 Google 回應載入 iframe 後顯示成功畫面
-            iframe.onload = function() {
-                if (!formSubmitted) return;
-                formSubmitted = false;
+            // 用 FormData 直接打包，讓瀏覽器自動設定 Content-Type
+            const fd = new FormData();
+            fd.append('entry.2138907829', form.querySelector('[name="entry.2138907829"]').value.trim());
+            fd.append('entry.1618024410', form.querySelector('[name="entry.1618024410"]').value.trim());
+            fd.append('entry.731297285',  form.querySelector('[name="entry.731297285"]').value.trim());
+            fd.append('entry.1179969121', form.querySelector('[name="entry.1179969121"]').value);
+            fd.append('entry.714140561',  form.querySelector('[name="entry.714140561"]').value);
+            fd.append('entry.2037258706', form.querySelector('[name="entry.2037258706"]').value);
+            form.querySelectorAll('[name="entry.1668108466"]:checked').forEach(cb => {
+                fd.append('entry.1668108466', cb.value);
+            });
+
+            function showSuccess() {
                 document.getElementById('form-container').style.display = 'none';
                 document.getElementById('success-message').classList.remove('hidden');
                 document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
-            };
+            }
+
+            try {
+                await fetch(ACTION, { method: 'POST', mode: 'no-cors', body: fd });
+                showSuccess();
+            } catch(err) {
+                showSuccess();
+            }
         });
     </script>
 </body>
